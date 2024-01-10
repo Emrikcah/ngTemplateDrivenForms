@@ -8,7 +8,7 @@ import { FormsModule, NgForm } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, RouterOutlet, FormsModule],
   template: `
-    <section class="container">
+    <section class="container" [ngClass]="{'form-shadow':registrationForm.touched}">
       <header>Registration Form</header>
 <!-- ngForm is storing a reference to this form via the templte ref variable registrationForm-->
       <form class="form" (ngSubmit)="OnFormSubmitted()" #registrationForm="ngForm">
@@ -44,15 +44,15 @@ import { FormsModule, NgForm } from '@angular/forms';
           <h3>Gender</h3>
           <div class="gender-option">
             <div class="gender">
-              <input type="radio" id="check-male" name="gender"   ngModel/>
+              <input type="radio" id="check-male" name="gender"  value="male"  ngModel/>
               <label for="check-male">male</label>
             </div>
             <div class="gender">
-              <input type="radio" id="check-female" name="gender" ngModel/>
+              <input type="radio" id="check-female" name="gender" value="female" ngModel/>
               <label for="check-female">Female</label>
             </div>
             <div class="gender">
-              <input type="radio" id="check-other" name="gender" ngModel/>
+              <input type="radio" id="check-other" name="gender" value="other" ngModel/>
               <label for="check-other">prefer not to say</label>
             </div>
           </div>
